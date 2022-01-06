@@ -1,0 +1,24 @@
+<nav class="TL" id="mainMenu">
+	<div id="mainMenuBg" class="absFull"></div>
+	<div id="social" class="TL">
+<%
+	_.each(socials, function (o) {
+		if (!o.visible) {
+			return;
+		} %>
+		<a class="socialBtn icon-<%= o.id %>" href="<%= o.url %>" target="_blank" onclick="trackEvent('Social Links', 'Social Link Clicked', '<%= o.trackingid %>');"></a>
+<% }); %>
+	</div>
+	<div id="mainMenuBtns">
+		<% _.each(menuList, function(o) {
+			if (!o.visible) {
+				return;
+			}
+		%>
+		<a <% _.each(o.properties, function(p, q) { print( q +'="'+p+'" ' ); }); %> class="mainMenuBtn navBtn">
+			<span class="label"><%= o.label %></span>
+			<div class="bar BL"><div class="barInner absFull"></div></div>
+		</a>
+		<% }); %>
+	</div>
+</nav>

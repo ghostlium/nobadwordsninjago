@@ -1,0 +1,44 @@
+<section id="translated">
+	<div id="translatedBG" class="absFull"></div>
+	<div id="translatedContent" class="TL">
+			<div id="translatedMessage"></div>
+			<div id="translatedMenuBtns">
+				<div id="translatedBack" class="translatedBtn"><p class="icon-next"></p></div>
+				<div id="translatedAnother" class="translatedBtn"><p></p></div>
+				<div id="translatedGetName" class="translatedBtn"><p></p></div>
+			</div>
+		</div>
+	</div>
+		<% if (promoList.enabled) { %>
+	<div id="translatedPromo" class="promo BL">
+		<div id="translatedPromoShell" class="BL fullW promoShell">
+			<div class="promoBtns">
+			<% _.each(promoList.items, function(o) {
+			    if (!o.visible) {
+			        return;
+			    }
+			    if (o.properties.href) {
+			%>
+			<a <% _.each(o.properties, function(p, q) { print( q +'="'+p+'" ' ); }); %> class="homePromoBtn">
+				<img src="<%= path %><%= o.image %>">
+				<span class="label BL"><%= o.label %></span>
+				<div class="absFull border"></div>
+			</a>
+			<% } else { %>
+			<div <% _.each(o.properties, function(p, q) { print( q +'="'+p+'" ' ); }); %> class="homePromoBtn">
+				<img src="<%= path %><%= o.image %>">
+				<span class="label BL"><%= o.label %></span>
+				<div class="absFull border"></div>
+			</div>
+
+
+			<%
+				}
+			}); %>
+
+			</div>
+		</div>
+	</div>
+	<% } %>
+
+</section>

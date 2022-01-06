@@ -1,0 +1,8 @@
+{
+"comment": "contents of 'list' are searched for by word, example it will mark 'my ass', but it will not mark 'mark bass'. contents of the 2nd list 'explicits' are marked no matter where found on their own or mixed into another word.",
+"list":[
+"your mom"],
+
+"explicit": ["your mom"
+]
+}

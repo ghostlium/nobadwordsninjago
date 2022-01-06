@@ -1,0 +1,52 @@
+<section id="home">
+	<div class="absFull" id="homeBg"></div>
+	<div class="absFull homeBgChars" id="homeBgL"></div>
+	<div class="absFull homeBgChars" id="homeBgR"></div>
+	<div class="absFull homeBgChars" id="homeBgLS"></div>
+	<div class="absFull homeBgChars" id="homeBgRS"></div>
+
+	<img src="images/home/lloyd.png" id="homeLloyd" class="T">
+
+	<div id="homeContentWrapper" class="T">
+		<div id="homeContent">
+			<img src="images/home/title.png" alt="Lego Ninjago Movie Language Translator" id="homeLogo">
+			<div id="homeIntro"></div>
+			<div id="getNameCTA" class="ctaBtn"><p></p></div>
+			<div id="homeOr"></div>
+			<div id="translateMessageCTA" class="ctaBtn"><p></p></div>
+		</div>
+		<div id="homeDate" class="B"><span style="<%= releaseDate.styles.home %>"><%= releaseDate.label %></span></div>
+	</div>
+	<% if (promoList.enabled) { %>
+	<div id="homePromo" class="BL">
+			<div id="homePromoShell" class="BL fullW">
+			<div id="homePromoBtns">
+			<% _.each(promoList.items, function(o) {
+			    if (!o.visible) {
+			        return;
+			    }
+			    if (o.properties.href) {
+			%>
+			<a <% _.each(o.properties, function(p, q) { print( q +'="'+p+'" ' ); }); %> class="homePromoBtn">
+				<img src="<%= path %><%= o.image %>">
+				<span class="label BL"><%= o.label %></span>
+				<div class="absFull border"></div>
+			</a>
+			<% } else { %>
+			<div <% _.each(o.properties, function(p, q) { print( q +'="'+p+'" ' ); }); %> class="homePromoBtn">
+				<img src="<%= path %><%= o.image %>">
+				<span class="label BL"><%= o.label %></span>
+				<div class="absFull border"></div>
+			</div>
+
+
+			<%
+				}
+			}); %>
+
+			</div>
+		</div>
+	</div>
+	<% } %>
+
+</section>

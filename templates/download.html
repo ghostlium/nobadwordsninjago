@@ -1,0 +1,73 @@
+<section id="download">
+	<div id="downloadBG" class="absFull"></div>
+	<div id="downloadContent" class="TL">
+		<div id="characterBtns" class="TL">
+			<div id="characterBtnShell" class="TL">
+				<div class="feature"><div class="characterBtn selected" data-char="9"></div></div>
+				<div class="characterBtn" data-char="1"></div>
+				<div class="characterBtn" data-char="2"></div>
+				<div class="characterBtn" data-char="3"></div>
+				<div class="characterBtn" data-char="4"></div>
+				<div class="characterBtn" data-char="5"></div>
+				<div class="characterBtn" data-char="6"></div>
+				<div class="characterBtn" data-char="7"></div>
+				<div class="characterBtn" data-char="8"></div>
+			</div>
+		</div>
+
+		<div id="characterCard" data-charstyle="1" class="TL" style="font-family:Mechbold;">
+			<div id="cardBuild" class="TR hidden">
+				<canvas width="719" height="981" id="saveCanvas" class="TL"></canvas>
+				<canvas width="719" height="719" id="saveDefaultCanvas" class="TL"></canvas>
+				<canvas width="719" height="981" id="printCanvas" class="TL"></canvas>
+				<div class="card absFull">
+					<div id="cardArt" class="noSelect absFull"></div>
+					<div id="cardArt2" class="noSelect absFull"></div>
+				</div>
+			</div>
+			<canvas width="719" height="981" id="cardCanvas" class="TL"></canvas>
+		</div>
+		<div id="downloadMenuBtns" class="TR">
+			<div id="save" class="TL">
+				<a id="printCardBtn" class="ctaBtn icon-print"></a>
+				<a id="downloadCardBtn" target="_blank" class="ctaBtn icon-download" download="NinjagoName.jpg"></a>
+			</div>
+			<div id="createAnother" class="TL">
+				<div id="createAnotherLabel"></div>
+				<div id="createAnotherBtn" class="ctaBtn icon-next BL"></div>
+			</div>
+		</div>
+	</div>
+		<% if (promoList.enabled) { %>
+	<div id="downloadPromo" class="promo BL">
+		<div id="downloadPromoShell" class="BL fullW promoShell">
+			<div class="promoBtns">
+			<% _.each(promoList.items, function(o) {
+			    if (!o.visible) {
+			        return;
+			    }
+			    if (o.properties.href) {
+			%>
+			<a <% _.each(o.properties, function(p, q) { print( q +'="'+p+'" ' ); }); %> class="homePromoBtn">
+				<img src="<%= path %><%= o.image %>">
+				<span class="label BL"><%= o.label %></span>
+				<div class="absFull border"></div>
+			</a>
+			<% } else { %>
+			<div <% _.each(o.properties, function(p, q) { print( q +'="'+p+'" ' ); }); %> class="homePromoBtn">
+				<img src="<%= path %><%= o.image %>">
+				<span class="label BL"><%= o.label %></span>
+				<div class="absFull border"></div>
+			</div>
+
+
+			<%
+				}
+			}); %>
+
+			</div>
+		</div>
+	</div>
+	<% } %>
+
+</section>

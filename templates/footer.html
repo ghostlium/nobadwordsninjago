@@ -1,0 +1,23 @@
+<div id="footer" class="BL">
+	<a id="officialSiteBtn" class="BL"></a>
+	<div id="legal" class="BR">
+	<% if (billing) { %>
+		<!-- <img src="images/framework/billing.png" id="billing"> -->
+	<% } %>
+	<% if (rating) { %>
+		<!-- <img src="images/framework/rating.png" id="rating"> -->
+	<% } %>
+	<% 
+	var l = legal.length;
+	_.each(legal, function(o, i) { 
+		if (!o.visible) {
+			return;
+		}
+	%><a href="<%= o.properties.href %>" target="_blank" class="legalBtn" style="<%= o.properties.style %>" trackingid="<%= o.properties.trackingid %>"><%= o.label %></a><% 
+		if (i < l - 1 ) {%> | <% }
+	}); %>
+		<span id="copyright"></span>
+		
+	</div>
+	<!-- <div class="TR icon-x" id="footerClose"></div> -->
+</div>
